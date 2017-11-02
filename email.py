@@ -9,6 +9,9 @@ j=0
 
 email = [None] * n
 nome = [None] * n
+add_from = input("Digite o email remetente: ")
+password = input("Digite a senha do email: ")
+
 
 while j < n:
     email[j] = input("Digite o email da pessoa: ")
@@ -19,11 +22,11 @@ j = 0
 while j < len(email):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login('add_from', 'password')    
+    server.login(add_from, password)    
     msg = "Ola, " + nome[j] + "!\n" + "Voce se inscreveu no Processo Seletivo 2017/3 da ERUS. Preciso que marque a entrevista neste link: https://doodle.com/poll/n53yhq27ycyxuvae" + "\n\nERUS - Equipe de Robotica da UFES"    
     assunto = "Processo Seletivo da ERUS"
     
     message = 'Subject: {}\n\n{}'.format(assunto, msg)
-    server.sendmail('add_from', email[j], message)
+    server.sendmail(add_from, email[j], message)
     server.quit()
     j+=1
