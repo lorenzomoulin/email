@@ -5,7 +5,7 @@ import smtplib
 email = []
 nome = []
 
-with open(sys.argv[0]) as f :
+with open(sys.argv[1]) as f :
     content = f.readlines()
 content = [x.strip() for x in content] 
 
@@ -31,5 +31,3 @@ for i in range(1,int(len(content)/2)):
     message = 'Subject: {}\n\n{}'.format(assunto, str(msg))
     server.sendmail(add_from, email[i], message)
     server.quit()
-    
-print (content)
