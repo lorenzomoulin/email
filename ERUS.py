@@ -38,5 +38,5 @@ while j < len(content):
 for i in range(0,int(len(content)/2)):
     
     message = 'Subject: {}\n\n{}'.format(assunto, final.replace("$name", nome[i]))
-    server.sendmail(add_from, email[i], message)
+    server.sendmail(add_from, email[i], message.encode('utf-8'))
 server.quit()
